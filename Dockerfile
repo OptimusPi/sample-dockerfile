@@ -11,13 +11,14 @@ WORKDIR /app
 # If your app requires the build context to be set to a subdirectory inside the repo, you
 #   can use the source_dir app spec option, see: https://www.digitalocean.com/docs/app-platform/references/app-specification-reference/
 COPY . .
+RUN apt --no-cache install golang
 RUN go build -mod=vendor -o bin/hello
 
 # -- Stage 2 -- #
 # Create the final environment with the compiled binary.
 FROM ubuntu
 # Install any required dependencies.
-RUN apt --no-cache install ca-certificates golang
+RUN apt --no-cache install ca-certificates
 WORKDIR /root/
 # Copy the binary from the builder stage and set it as the default command.
 COPY --from=builder /app/bin/hello /usr/local/bin/
