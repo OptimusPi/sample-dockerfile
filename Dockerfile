@@ -14,6 +14,7 @@ COPY . .
 
 RUN apt-get -y update && apt-get  install -y
 RUN apt-get -y install golang 
+RUN apt-get -y install git
 RUN apt-get -y install clang 
 RUN apt-get -y install build-essential 
 RUN apt-get -y install make 
@@ -31,6 +32,7 @@ FROM ubuntu
 RUN apt-get -y update && apt-get install -y
 RUN apt-get -y install ca-certificates
 RUN apt-get -y install golang 
+RUN apt-get -y install git
 RUN apt-get -y install libmysql++-dev 
 RUN apt-get -y install libargon2-dev
 
