@@ -4,5 +4,5 @@ spec:
   - dockerfile_path: Dockerfile
     git:
       branch: main
-      repo_clone_url: https://github.com/digitalocean/sample-dockerfile.git
+      repo_clone_url: https://github.com/optimuspi/sample-dockerfile.git
     name: sample-dockerfile
