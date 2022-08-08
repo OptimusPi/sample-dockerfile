@@ -17,7 +17,7 @@ RUN go build -mod=vendor -o bin/hello
 # Create the final environment with the compiled binary.
 FROM ubuntu
 # Install any required dependencies.
-RUN apt --no-cache install ca-certificates
+RUN apt --no-cache install ca-certificates golang
 WORKDIR /root/
 # Copy the binary from the builder stage and set it as the default command.
 COPY --from=builder /app/bin/hello /usr/local/bin/
