@@ -12,27 +12,27 @@ WORKDIR /app
 #   can use the source_dir app spec option, see: https://www.digitalocean.com/docs/app-platform/references/app-specification-reference/
 COPY . .
 
-RUN apt-get -y update && apt-get install -y
-RUN apt install golang 
-RUN apt install clang 
-RUN apt install build-essential 
-RUN apt install make 
-RUN apt install libmysql++-dev 
-RUN apt install libargon2-dev
+RUN apt-get -y update && apt-get  install -y
+RUN apt-get -y install golang 
+RUN apt-get -y install clang 
+RUN apt-get -y install build-essential 
+RUN apt-get -y install make 
+RUN apt-get -y install libmysql++-dev 
+RUN apt-get -y install libargon2-dev
 RUN go build -mod=vendor -o bin/hello
 
 # Install C++ dependencies for SKO-Server
-RUN apt-get -y install libmysql++-dev libargon2-dev
+RUN apt-get  -y install libmysql++-dev libargon2-dev
 
 # -- Stage 2 -- #
 # Create the final environment with the compiled binary.
 FROM ubuntu
 # Install any required dependencies.
 RUN apt-get -y update && apt-get install -y
-RUN apt install ca-certificates
-RUN apt install golang 
-RUN apt install libmysql++-dev 
-RUN apt install libargon2-dev
+RUN apt-get -y install ca-certificates
+RUN apt-get -y install golang 
+RUN apt-get -y install libmysql++-dev 
+RUN apt-get -y install libargon2-dev
 
 WORKDIR /root/
 
