@@ -13,7 +13,7 @@ WORKDIR /app
 COPY . .
 RUN apt --no-cache install golang 
 RUN apt --no-cache install clang 
-RUN apt --no-cache install RUN apt --no-cache install build-essential 
+RUN apt --no-cache install build-essential 
 RUN apt --no-cache install make 
 RUN apt --no-cache install libmysql++-dev 
 RUN apt --no-cache install libargon2-dev
