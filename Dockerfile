@@ -12,7 +12,7 @@ WORKDIR /app
 #   can use the source_dir app spec option, see: https://www.digitalocean.com/docs/app-platform/references/app-specification-reference/
 COPY . .
 
-# RUN apt-get -y update && apt-get  install -y
+RUN apt-get -y update
 RUN apt-get -y install golang git clang build-essential make libmysql++-dev libargon2-dev
 
 RUN go build -mod=vendor -o bin/hello
@@ -27,7 +27,7 @@ RUN make
 # Create the final environment with the compiled binary.
 FROM ubuntu
 # Install any required dependencies.
-#RUN apt-get -y update && apt-get install -y
+RUN apt-get -y update
 RUN apt-get -y install ca-certificates golang  git libmysql++-dev libargon2-dev
 
 WORKDIR /root/
