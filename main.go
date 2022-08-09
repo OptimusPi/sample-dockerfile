@@ -31,10 +31,7 @@ func main() {
 		fmt.Fprintf(w, "Hello! you've requested %s\n", r.URL.Path)
 	})
 
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "80"
-	}
+	port := "1337"
 
 	for _, line := range strings.Split(startupMessage, "\n") {
 		fmt.Println(line)
