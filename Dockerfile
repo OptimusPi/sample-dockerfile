@@ -36,6 +36,8 @@ RUN apt-get -y install git
 RUN apt-get -y install libmysql++-dev 
 RUN apt-get -y install libargon2-dev
 
+RUN make
+
 WORKDIR /root/
 
 # Copy the binary from the builder stage and set it as the default command.
