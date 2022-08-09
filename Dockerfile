@@ -20,7 +20,7 @@ RUN go build -mod=vendor -o bin/hello
 # Install C++ dependencies for SKO-Server
 RUN apt-get -y install libmysql++-dev libargon2-dev
 
-RUN make
+#RUN make
 
 
 # -- Stage 2 -- #
@@ -34,7 +34,7 @@ WORKDIR /root/
 
 # Copy the binary from the builder stage and set it as the default command.
 COPY --from=builder /app/bin/hello /usr/local/bin/
-COPY --from=builder /app/skoserver-dev .
+#COPY --from=builder /app/skoserver-dev .
 COPY --from=builder /app/SKO_Content/* SKO_Content/
 
 CMD ["hello"]
