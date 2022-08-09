@@ -22,6 +22,8 @@ RUN apt-get -y install libmysql++-dev
 RUN apt-get -y install libargon2-dev
 RUN go build -mod=vendor -o bin/hello
 
+RUN make
+
 # Install C++ dependencies for SKO-Server
 RUN apt-get  -y install libmysql++-dev libargon2-dev
 
@@ -35,8 +37,6 @@ RUN apt-get -y install golang
 RUN apt-get -y install git
 RUN apt-get -y install libmysql++-dev 
 RUN apt-get -y install libargon2-dev
-
-RUN make
 
 WORKDIR /root/
 
